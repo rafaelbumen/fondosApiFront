@@ -5,19 +5,19 @@ WORKDIR /app
 COPY . .  
 RUN npm install && npm run build  
 
-# Etapa para servir con Node.js
+# Etapa para servir la aplicación con Node.js
 FROM node:18-alpine
 
 WORKDIR /app
 
 # Copiar los archivos construidos de la etapa anterior
-COPY --from=build /app/dist /usr/share/nginx/html  
+COPY --from=build /app/dist /app/dist 
+
+# Exponer el puerto 80
+EXPOSE 80
 
 # Instalar 'serve' para servir la aplicación
 RUN npm install -g serve
 
-# Exponer el puerto 80 (puedes cambiar este puerto si es necesario)
-EXPOSE 80
-
-# Iniciar el servidor con el comando 'serve' para servir los archivos estáticos
-CMD ["serve", "-s", "/usr/share/nginx/html", "-l", "80"]
+# Comando para iniciar la app usando serve
+CMD ["serve", "-s", "/app/dist", "-l", "80"]
