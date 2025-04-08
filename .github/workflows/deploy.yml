@@ -25,20 +25,20 @@ jobs:
       - name: Build and Push Docker image to ECR
         run: |
           # Login a ECR
-          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <your-ecr-url>
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 362079385999.dkr.ecr.us-east-1.amazonaws.com
           
           # Construir la imagen Docker
           docker build -t frontend-fondos .
           
           # Etiquetar y subir al repositorio
-          docker tag frontend-fondos:latest <your-ecr-url>/frontend-fondos:latest
-          docker push <your-ecr-url>/frontend-fondos:latest
+          docker tag frontend-fondos:latest 362079385999.dkr.ecr.us-east-1.amazonaws.com/frontend-fondos:latest
+          docker push 362079385999.dkr.ecr.us-east-1.amazonaws.com/frontend-fondos:latest
 
       # Actualizar ECS con la nueva imagen
       - name: Update ECS service
         run: |
           # Actualizar servicio ECS
           aws ecs update-service \
-            --cluster <your-cluster-name> \
+            --cluster Infra-ECS-Cluster-FondosApp-Frontend-Cluster-40f15e7c \
             --service frontend-fondos-service \
             --force-new-deployment
