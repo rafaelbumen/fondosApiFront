@@ -1,0 +1,46 @@
+/* Asegúrate de que el HTML y el body ocupen todo el tamaño de la pantalla */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* El contenedor principal de la aplicación ocupa toda la altura y usa flex */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Esto asegura que la aplicación ocupe al menos toda la pantalla */
+}
+
+/* Formulario de registro centrado */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Esto hace que el formulario ocupe el espacio restante */
+  padding: 20px;
+}
+
+/* Pie de página con estilo */
+footer {
+  background-color: #0a2540;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: auto; /* Esto asegura que el pie de página quede en la parte inferior */
+  width: 100%; /* Asegura que el pie de página ocupe todo el ancho */
+  box-sizing: border-box; /* Esto garantiza que no haya desbordamiento */
+}
+
+footer a {
+  color: #3182ce;
+  text-decoration: none;
+}
+
+/* Estilos adicionales para el cuerpo */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

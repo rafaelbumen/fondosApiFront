@@ -1,0 +1,170 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1f2937;
+  color: white;
+  padding: 30px 20px;
+  flex-shrink: 0;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.nav-links a {
+  display: block;
+  margin-bottom: 18px;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  color: #60a5fa;
+}
+
+.main-content {
+  flex: 1;
+  padding: 40px 60px;
+  background-color: #eef1f8;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-pic {
+  width: 35px;
+  height: 35px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+.welcome-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.welcome-text h2 {
+  font-size: 24px;
+  color: #1f2937;
+  margin-bottom: 5px;
+}
+
+.welcome-text p {
+  color: #4b5563;
+}
+
+.welcome-icon {
+  font-size: 42px;
+}
+
+.info-cards {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.info-box {
+  flex: 1;
+  min-width: 200px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+}
+
+.info-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.value {
+  font-size: 24px;
+}
+
+.monto-disponible {
+  background-color: #38a169;
+}
+
+.monto-invertido {
+  background-color: #3182ce;
+}
+
+.transacciones-realizadas {
+  background-color: #e53e3e;
+}
+
+.inversiones-activas {
+  background-color: #d69e2e;
+}
+
+.estadisticas-title {
+  margin: 40px 0 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.stats-container {
+  margin-bottom: 60px;
+}
+
+.stat-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
