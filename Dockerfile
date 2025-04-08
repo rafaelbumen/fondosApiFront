@@ -3,7 +3,7 @@ FROM node:18-alpine as build
 
 WORKDIR /app
 COPY . .  
-RUN npm install && npm run build  # Ejecuta el build de la app React
+RUN npm install && npm run build  
 
 # Etapa para servir con NGINX
 FROM nginx:alpine
