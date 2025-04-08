@@ -12,7 +12,7 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copiar los archivos construidos a la carpeta pública de NGINX
-COPY --from=build /app/build /usr/share/nginx/html  # Asegúrate de que sea /build (si usas CRA)
+COPY --from=build /app/build /usr/share/nginx/html  
 
 # Exponer el puerto 80
 EXPOSE 80
