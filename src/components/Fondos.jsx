@@ -98,8 +98,6 @@ export default function Fondos() {
           <a href="/dashboard">Dashboard</a>
           <Link to="/fondos">Fondos de Inversión</Link>
           <Link to="/transacciones">Mis Transacciones</Link>
-          <Link to="/consignar">Consignar</Link>
-          <Link to="/perfil">Mi Información</Link>
           <Link to="/login" onClick={() => localStorage.removeItem("token")}>Cerrar Sesión</Link>
         </nav>
 
