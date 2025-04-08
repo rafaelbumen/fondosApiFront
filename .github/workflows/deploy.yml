@@ -37,8 +37,8 @@ jobs:
       # Actualizar ECS con la nueva imagen
       - name: Update ECS service
         run: |
-          # Actualizar servicio ECS
+          # Actualizar servicio ECS usando los secretos de GitHub
           aws ecs update-service \
-            --cluster Infra-ECS-Cluster-FondosApp-Frontend-Cluster-40f15e7c \
-            --service frontend-fondos-service \
+            --cluster ${{ secrets.ECS_CLUSTER_NAME }} \
+            --service ${{ secrets.ECS_SERVICE_NAME }} \
             --force-new-deployment
