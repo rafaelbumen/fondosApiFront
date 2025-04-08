@@ -15,14 +15,6 @@ export default function Sidebar() {
           <ListItemText primary="Mis Transacciones" />
         </ListItem>
         <Divider />
-        <ListItem button component={Link} to="/consignar">
-          <ListItemText primary="Consignar" />
-        </ListItem>
-        <Divider />
-        <ListItem button component={Link} to="/informacion">
-          <ListItemText primary="Mi Información" />
-        </ListItem>
-        <Divider />
         <ListItem button>
           <ListItemText primary="Cerrar Sesión" />
         </ListItem>
