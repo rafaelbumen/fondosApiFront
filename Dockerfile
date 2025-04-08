@@ -3,7 +3,7 @@ FROM node:18-alpine as build
 
 WORKDIR /app
 COPY . .  
-RUN npm install && npm run build 
+RUN npm install && npm run build  
 
 # Etapa para servir con Node.js
 FROM node:18-alpine
@@ -11,13 +11,13 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copiar los archivos construidos de la etapa anterior
-COPY --from=build /app/build /usr/share/nginx/html 
+COPY --from=build /app/dist /usr/share/nginx/html  
 
-# Instalar un servidor Express para servir la aplicación React
+# Instalar 'serve' para servir la aplicación
 RUN npm install -g serve
 
-# Exponer el puerto 80
+# Exponer el puerto 80 (puedes cambiar este puerto si es necesario)
 EXPOSE 80
 
-# Iniciar el servidor con el comando 'serve' para servir los archivos estáticos en el puerto 80
+# Iniciar el servidor con el comando 'serve' para servir los archivos estáticos
 CMD ["serve", "-s", "/usr/share/nginx/html", "-l", "80"]
