@@ -1,0 +1,44 @@
+name: Deploy Frontend to ECS
+
+on:
+  push:
+    branches:
+      - main  # O la rama que uses para producción
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout del código
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Configurar AWS CLI
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1  # Región de tu preferencia
+
+      # Crear imagen Docker y subirla a ECR
+      - name: Build and Push Docker image to ECR
+        run: |
+          # Login a ECR
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <your-ecr-url>
+          
+          # Construir la imagen Docker
+          docker build -t frontend-fondos .
+          
+          # Etiquetar y subir al repositorio
+          docker tag frontend-fondos:latest <your-ecr-url>/frontend-fondos:latest
+          docker push <your-ecr-url>/frontend-fondos:latest
+
+      # Actualizar ECS con la nueva imagen
+      - name: Update ECS service
+        run: |
+          # Actualizar servicio ECS
+          aws ecs update-service \
+            --cluster <your-cluster-name> \
+            --service frontend-fondos-service \
+            --force-new-deployment
